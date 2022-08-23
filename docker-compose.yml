@@ -1,0 +1,56 @@
+version: '3'
+services:
+
+  nodejs:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    depends_on:
+      - mysql
+    container_name: node-proj
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${PWD}:/usr/src/app
+    # command: "npm install"
+    command: bash -c "npx nodemon ./server.js"
+
+# https://zhao-li.medium.com/getting-started-with-postgresql-using-docker-compose-34d6b808c47c
+# https://towardsdatascience.com/how-to-run-postgresql-and-pgadmin-using-docker-3a6a8ae918b5
+# https://markheath.net/post/exploring-postgresql-with-docker
+# https://stackoverflow.com/questions/61576670/databases-in-psql-dont-show-up-in-pgadmin4
+  postgres:
+    container_name: pg_container
+    image: postgres
+    # restart: unless-stopped
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: mydb
+    # volumes:
+    #   - database-data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+
+
+  # mysql:
+  #   image: mysql:5.7.31
+  #   container_name: mysqldb
+  #   ports:
+  #     - "3306:3306"
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: admin
+
+volumes:
+  database-data:

@@ -1,0 +1,22 @@
+{
+    "name": "node",
+    "version": "0.0.1",
+    "author": "dhs404",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.16.1",
+        "express-xss-sanitizer": "^1.1.1",
+        "helmet": "^4.6.0",
+        "loadtest": "^5.1.2",
+        "mysql": "^2.18.1",
+        "nodemon": "^2.0.14",
+        "pg": "^8.8.0",
+        "pgtools": "^0.1.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    }
+}

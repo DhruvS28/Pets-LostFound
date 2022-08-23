@@ -1,0 +1,25 @@
+
+// allows updating in real time when a change is made so that the server does not need to be restarted
+"nodemon": "^2.0.14",
+
+
+// postgres sql packages, the first allows using postgres, the second is just to create a brand new database
+"pg": "^8.7.1",
+"pgtools": "^0.3.2",
+
+
+// basic package
+"@babel/core": "^7.16.0",
+
+// allows using modern javascript
+"@babel/preset-env": "^7.16.4",
+
+// take jsx code and turn it into vanilla react
+"@babel/preset-react": "^7.16.0",
+
+// connect bable to webpack, webpack is a package that takes written and code and turns it onto something that can be served to the web
+"babel-loader": "^8.2.3",
+
+// the first allows using react, the second allows rendering to a document
+"react": "^17.0.2",
+"react-dom": "^17.0.2"
